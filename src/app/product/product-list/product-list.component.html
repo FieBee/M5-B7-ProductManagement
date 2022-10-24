@@ -1,0 +1,79 @@
+
+<div class="col-5 m-auto">
+  <div class="card my-3">
+<!--    <div class="card-header text-uppercase text-white">-->
+<!--      <i class=""></i>-->
+<!--    </div>-->
+
+
+    <div class="card-body bg-light">
+      <form [formGroup]="productForm" >
+        <table>
+          <tr>
+            <td>Mã sản phẩm:</td>
+            <td><input type="number" [(ngModel)]="product.id" formControlName="id"></td>
+          </tr>
+          <tr>
+            <td>Tên sản phẩm:</td>
+            <td><input type="text"  [(ngModel)]="product.name" formControlName="name"></td>
+          </tr>
+          <tr>
+            <td>Giá sản phẩm</td>
+            <td><input type="number" [(ngModel)]="product.price" formControlName="price"></td>
+          </tr>
+          <tr>
+            <td>Mô tả về sản phẩm</td>
+            <td><input type="text"  [(ngModel)]="product.description"  formControlName="description"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><button (click)="create()">Lưu</button></td>
+            <td><button (click)="cancel()">Hủy</button></td>
+          </tr>
+        </table>
+      </form>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div>
+    <table class="table table-bordered table-hover bg-white">
+
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th colspan="2">Hành động</th>
+      </tr>
+
+      <tr *ngFor="let product of products; index as i">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.description}}</td>
+        <td >
+          <button (click)="edit(i)"> Sửa</button>
+        </td>
+        <td >
+          <button (click)="delete(i)"> Xóa</button>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+
+</div>
+
